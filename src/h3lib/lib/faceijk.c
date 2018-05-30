@@ -462,6 +462,8 @@ void _geoToHex2d(const GeoCoord* g, int res, int* face, Vec2d* v) {
         }
     }
 
+    r = acos(r);
+
     if (r < EPSILON) {
         v->x = v->y = 0.0L;
         return;

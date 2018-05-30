@@ -184,7 +184,7 @@ double _geoDistRadsCX(const GeoCoordTrigon* t1, const GeoCoordTrigon* t2) {
     if (cosc > 1.0L) cosc = 1.0L;
     if (cosc < -1.0L) cosc = -1.0L;
 
-    return acos(cosc);
+    return cosc;
 }
 
 /**
