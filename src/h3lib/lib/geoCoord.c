@@ -161,6 +161,31 @@ double _geoDistRads(const GeoCoord* p1, const GeoCoord* p2) {
 
     return acos(cosc);
 }
+/**
+ * Find the great circle distance in radians between two spherical coordinates.
+ *
+ * @param t1 The first spherical coordinates.
+ * @param t2 The second spherical coordinates.
+ * @return The great circle distance in radians between t1 and t2.
+ */
+double _geoDistRadsCX(const GeoCoordTrigon* t1, const GeoCoordTrigon* t2) {
+    double sinLatA = t1->sinLat;
+    double cosLatA = t1->cosLat;
+    double sinLonA = t1->sinLon;
+    double cosLonA = t1->cosLon;
+
+    double sinLatB = t2->sinLat;
+    double cosLatB = t2->cosLat;
+    double sinLonB = t2->sinLon;
+    double cosLonB = t2->cosLon;
+
+    double cosc = cosLatA * cosLatB +
+                  sinLatA * sinLatB * (cosLonA * cosLonB + sinLonA * sinLonB);
+    if (cosc > 1.0L) cosc = 1.0L;
+    if (cosc < -1.0L) cosc = -1.0L;
+
+    return acos(cosc);
+}
 
 /**
  * Find the great circle distance in kilometers between two spherical

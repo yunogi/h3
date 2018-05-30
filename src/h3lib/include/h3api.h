@@ -67,6 +67,16 @@ typedef struct {
     double lon;  ///< longitude in radians
 } GeoCoord;
 
+/** @struct GeoCoordTrigon
+    @brief trigon in latitude/longitude
+*/
+typedef struct {
+    double sinLat;  ///< sin of PI * 2 - latitude
+    double cosLat;  ///< cos of latitude
+    double sinLon;  ///< sin of PI * 2 - longitude
+    double cosLon;  ///< cos longitude
+} GeoCoordTrigon;
+
 /** @struct GeoBoundary
     @brief cell boundary in latitude/longitude
 */
